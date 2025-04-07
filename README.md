@@ -2,7 +2,9 @@
 
 API csatlakozás nyilvánvalóan nincs, src mappában lenne az environment mappa, benne az environment TypeScript file az API kulccsal.
 
-# Projekt
+# Firebase
+
+[Hostolt app](https://pcpartpicker-36abe-64480.firebaseapp.com)
 
 ## TODO
 Auth, Saját konfiguráció mentése, Admin oldal (addPC)
