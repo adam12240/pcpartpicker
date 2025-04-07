@@ -6,6 +6,10 @@ API csatlakozás nyilvánvalóan nincs, src mappában lenne az environment mappa
 
 ## TODO
 Auth, Saját konfiguráció mentése, Admin oldal (addPC)
+## Angular
+
+Indítás: ```ng serve```<br><br>
+Build: ```ng build```
 
 ## Egyéb
 A projekt az SZTE-TTIK Webfejlesztési keretrendszerek (IB471G) kötelező programjaként készült.
