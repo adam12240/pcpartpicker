@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Comparison</h1>
+
+  <div class="pc">
+    <h2>PC 1</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CPU</mat-label>
+      <mat-select [(ngModel)]="cpu1">
+        <mat-option *ngFor="let cpu of cpus$ | async" [value]="cpu">{{ cpu.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>GPU</mat-label>
+      <mat-select [(ngModel)]="gpu1">
+        <mat-option *ngFor="let gpu of gpus$ | async" [value]="gpu">{{ gpu.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>RAM</mat-label>
+      <mat-select [(ngModel)]="ram1">
+        <mat-option *ngFor="let ram of rams$ | async" [value]="ram">{{ram.manufacturer + " " +  ram.size + " GB " +  ram.mhz + "MHz"}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+  <div class="pc">
+    <h2>PC 2</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CPU</mat-label>
+      <mat-select [(ngModel)]="cpu2">
+        <mat-option *ngFor="let cpu of cpus$ | async" [value]="cpu">{{ cpu.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>GPU</mat-label>
+      <mat-select [(ngModel)]="gpu2">
+        <mat-option *ngFor="let gpu of gpus$ | async" [value]="gpu">{{ gpu.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>RAM</mat-label>
+      <mat-select [(ngModel)]="ram2">
+        <mat-option *ngFor="let ram of rams$ | async" [value]="ram">{{ram.manufacturer + " " +  ram.size + " GB " +  ram.mhz + "MHz"}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+  <button class="button" (click)="showAlertAndCompare()">Compare</button>
+
+  <div class="comparison" [innerHTML]="comparisonResults()"></div>
+</div>

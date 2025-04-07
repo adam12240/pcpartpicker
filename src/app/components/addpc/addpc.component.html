@@ -1,0 +1,74 @@
+
+<div class="container">
+    <div class="add-part">
+      <h3>Add CPU</h3>
+      <mat-form-field appearance="fill">
+        <mat-label>CPU Name</mat-label>
+        <input matInput [(ngModel)]="newCpu.name" placeholder="Name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cores</mat-label>
+        <input matInput [(ngModel)]="newCpu.cores" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Threads</mat-label>
+        <input matInput [(ngModel)]="newCpu.threads" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>TDP</mat-label>
+        <input matInput [(ngModel)]="newCpu.tdp" type="number" />
+      </mat-form-field>
+      <button class="button" (click)="component='CPU';showAlertAndAdd('cpus',newCpu);">Add</button>
+      <br><br>
+      <h3>Add GPU</h3>
+      <mat-form-field appearance="fill">
+        <mat-label>GPU Name</mat-label>
+        <input matInput [(ngModel)]="newGpu.name" placeholder="Name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cores</mat-label>
+        <input matInput [(ngModel)]="newGpu.cores" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>TMUs</mat-label>
+        <input matInput [(ngModel)]="newGpu.tmus" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>ROPs</mat-label>
+        <input matInput [(ngModel)]="newGpu.rops" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Memory Size</mat-label>
+        <input matInput [(ngModel)]="newGpu.memorySize" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Bus Width</mat-label>
+        <input matInput [(ngModel)]="newGpu.busWidth" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>RAM Type</mat-label>
+        <input matInput [(ngModel)]="newGpu.memoryType" />
+      </mat-form-field>
+      <button class="button" (click)="component='GPU';showAlertAndAdd('gpus',newGpu);">Add</button>
+      <br><br>
+  
+      <h3>Add RAM</h3>
+      <mat-form-field appearance="fill">
+        <mat-label>RAM Manufacturer</mat-label>
+        <input matInput [(ngModel)]="newRam.manufacturer" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>RAM Size</mat-label>
+        <input matInput [(ngModel)]="newRam.size" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>RAM MHz</mat-label>
+        <input matInput [(ngModel)]="newRam.mhz" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>RAM Type</mat-label>
+        <input matInput [(ngModel)]="newRam.type" />
+      </mat-form-field>
+      <button class="button" (click)="component='RAM';showAlertAndAdd('ram',newRam);">Add</button>
+    </div>
+</div>
