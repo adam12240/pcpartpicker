@@ -1,8 +1,19 @@
-
 <header class="header">
-      <img src="logopartpicker.png" class="logo">
-    <nav class="navbar">
-      <a routerLink="">Comparison</a>
-      <a routerLink="/addpc">Add PC</a>
-    </nav>
-  </header>
+  <img src="logopartpicker.png" class="logo">
+
+  <nav class="navbar">
+    <a routerLink="/">Comparison</a>
+
+    <a *ngIf="isPrivilegedUser()" routerLink="/addpc">Add PC</a>
+
+    <!-- Add link to Make a Config page -->
+    <a *ngIf="isUser()" routerLink="/make-a-config">Make a Config</a>
+
+    <ng-container *ngIf="auth.userData() as user">
+      <span class="nav-loggedin">Logged in as {{ user.displayName }}</span>
+      <a (click)="auth.googleSignOut()">Logout</a>
+    </ng-container>
+
+    <a *ngIf="!auth.userData()" (click)="auth.googleSignIn()">Login</a>
+  </nav>
+</header>

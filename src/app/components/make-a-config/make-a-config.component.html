@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>Make a Config</h1>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Build Name</mat-label>
+      <input matInput [(ngModel)]="buildName" placeholder="My Gaming PC">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>CPU</mat-label>
+      <mat-select [(ngModel)]="cpu">
+        <mat-option *ngFor="let cpuItem of cpus$ | async" [value]="cpuItem">{{ cpuItem.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>GPU</mat-label>
+      <mat-select [(ngModel)]="gpu">
+        <mat-option *ngFor="let gpuItem of gpus$ | async" [value]="gpuItem">{{ gpuItem.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>RAM</mat-label>
+      <mat-select [(ngModel)]="ram">
+        <mat-option *ngFor="let ramItem of rams$ | async" [value]="ramItem">
+          {{ ramItem.manufacturer + ' ' + ramItem.size + ' GB ' + ramItem.mhz + 'MHz' }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="createBuild()">Create Build</button>
+  
+    <div class="builds">
+  <h2>Your Builds</h2>
+  <div *ngIf="builds().length === 0" class="empty-builds">Create a build to have it here</div>
+
+  <mat-card *ngFor="let build of builds()">
+    <mat-card-title>
+      {{ build.name }}
+    </mat-card-title>
+    <mat-card-content>
+      <p><strong>CPU:</strong> {{ build.cpu?.name || 'N/A' }}</p>
+      <p><strong>GPU:</strong> {{ build.gpu?.name || 'N/A' }}</p>
+      <p><strong>RAM:</strong> {{ build.ram?.manufacturer }} {{ build.ram?.size }}GB {{ build.ram?.mhz }}MHz</p>
+        <br>
+        <button mat-button (click)="deleteBuild(build.id)" class="delete-text-button">
+            Delete
+        </button>
+    </mat-card-content>
+  </mat-card>
+</div>

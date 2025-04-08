@@ -23,17 +23,24 @@ header {
     display: flex;
     gap: 35px;
 }
+.nav-auth-group {
+    display: flex;
+    gap: 35px;
+  }
 
-.navbar a {
+.navbar a,
+.nav-link,.nav-loggedin {
     color: #ddd;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
     position: relative;
+    cursor: pointer;
 }
 
-.navbar a::after {
+.navbar a::after,
+.nav-link::after {
     content: '';
     display: block;
     width: 0;
@@ -46,9 +53,17 @@ header {
     transform: translateX(-50%);
 }
 
-.navbar a:hover::after {
+.navbar a:hover::after,
+.nav-link:hover::after {
     width: 100%;
 }
+
+.nav-loggedin {
+    color: #ddd;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 
 @media (max-width: 768px) {
     .header {
