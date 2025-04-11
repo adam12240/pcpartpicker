@@ -13,14 +13,16 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent {
   auth = inject(AuthService);
 
-  // Optional signal alias if you want
+
+  isUser = computed(() => {
+    const role = this.auth.userRole();
+    return role === 'admin' || role === 'owner' || role === 'user';
+  });
+  
   isPrivilegedUser = computed(() => {
     const role = this.auth.userRole();
     return role === 'admin' || role === 'owner';
   });
 
-  isUser = computed(() => {
-    const role = this.auth.userRole();
-    return role === 'admin' || role === 'owner' || role === 'user';
-  })
+  
 }

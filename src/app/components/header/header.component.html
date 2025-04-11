@@ -6,7 +6,6 @@
 
     <a *ngIf="isPrivilegedUser()" routerLink="/addpc">Add PC</a>
 
-    <!-- Add link to Make a Config page -->
     <a *ngIf="isUser()" routerLink="/make-a-config">Make a Config</a>
 
     <ng-container *ngIf="auth.userData() as user">

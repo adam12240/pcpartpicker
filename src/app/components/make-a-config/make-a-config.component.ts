@@ -129,4 +129,47 @@ export class MakeAConfigComponent implements OnInit{
       console.error(error);
     }
   }
+
+selectedBuild1: any = null;
+selectedBuild2: any = null;
+comparisonResult: string = '';
+
+compareSelectedBuilds() {
+  if (!this.selectedBuild1 || !this.selectedBuild2) {
+    this.snackBar.open('Please select two builds to compare.', 'Close', {
+      duration: 3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
+    return;
+  }
+
+  const b1 = this.selectedBuild1;
+  const b2 = this.selectedBuild2;
+
+  let result = `<h3>Comparison: ${b1.name} vs ${b2.name}</h3>`;
+
+  const compareValues = (val1: number, val2: number) => val1 > val2 ? '>' : val1 < val2 ? '<' : '=';
+
+  result += `<strong>CPU:</strong> ${b1.cpu.name} vs ${b2.cpu.name}<br>`;
+  result += `Cores: ${b1.cpu.cores} ${compareValues(b1.cpu.cores, b2.cpu.cores)} ${b2.cpu.cores}<br>`;
+  result += `Threads: ${b1.cpu.threads} ${compareValues(b1.cpu.threads, b2.cpu.threads)} ${b2.cpu.threads}<br>`;
+  result += `TDP: ${b1.cpu.tdp}W ${compareValues(b2.cpu.tdp, b1.cpu.tdp)} ${b2.cpu.tdp}W<br><br>`;
+
+  result += `<strong>GPU:</strong> ${b1.gpu.name} vs ${b2.gpu.name}<br>`;
+  result += `Cores: ${b1.gpu.cores} ${compareValues(b1.gpu.cores, b2.gpu.cores)} ${b2.gpu.cores}<br>`;
+  result += `TMUs: ${b1.gpu.tmus} ${compareValues(b1.gpu.tmus, b2.gpu.tmus)} ${b2.gpu.tmus}<br>`;
+  result += `ROPs: ${b1.gpu.rops} ${compareValues(b1.gpu.rops, b2.gpu.rops)} ${b2.gpu.rops}<br>`;
+  result += `Memory Size: ${b1.gpu.memorySize}MB ${compareValues(b1.gpu.memorySize, b2.gpu.memorySize)} ${b2.gpu.memorySize}MB<br>`;
+  result += `Bus Width: ${b1.gpu.busWidth} bit ${compareValues(b1.gpu.busWidth, b2.gpu.busWidth)} ${b2.gpu.busWidth} bit<br>`;
+  result += `Memory Type: ${b1.gpu.memoryType} vs ${b2.gpu.memoryType}<br><br>`;
+
+  result += `<strong>RAM:</strong> ${b1.ram.manufacturer} vs ${b2.ram.manufacturer}<br>`;
+  result += `Size: ${b1.ram.size}GB ${compareValues(b1.ram.size, b2.ram.size)} ${b2.ram.size}GB<br>`;
+  result += `MHz: ${b1.ram.mhz}MHz ${compareValues(b1.ram.mhz, b2.ram.mhz)} ${b2.ram.mhz}MHz<br>`;
+  result += `Type: ${b1.ram.type} vs ${b2.ram.type}<br>`;
+
+  this.comparisonResult = result;
+  this.cdRef.detectChanges();
+}
 }

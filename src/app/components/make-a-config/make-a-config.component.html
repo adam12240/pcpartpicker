@@ -49,4 +49,27 @@
         </button>
     </mat-card-content>
   </mat-card>
+
+  <div class="compare-section">
+    <h2>Compare Builds</h2>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Select Build 1</mat-label>
+      <mat-select [(ngModel)]="selectedBuild1">
+        <mat-option *ngFor="let build of builds()" [value]="build">{{ build.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Select Build 2</mat-label>
+      <mat-select [(ngModel)]="selectedBuild2">
+        <mat-option *ngFor="let build of builds()" [value]="build">{{ build.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="accent" (click)="compareSelectedBuilds()">Compare Selected Builds</button>
+  
+    <div *ngIf="comparisonResult" class="comparison-result" [innerHTML]="comparisonResult"></div>
+  </div>
+  
 </div>

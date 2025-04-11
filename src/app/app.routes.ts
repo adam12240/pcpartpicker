@@ -8,7 +8,6 @@ export const routes: Routes = [
         loadComponent: () => import('./components/home/home.component').then((m) => m.HomeComponent)
         
     },
-
     {
         path: 'addpc',
         pathMatch: 'full',

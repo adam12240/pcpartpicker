@@ -135,10 +135,41 @@
     border-radius: 6px;
     transition: background 0.2s ease-in-out;
   }
-  
   .delete-text-button:hover {
     background-color: rgba(255, 77, 77, 0.1);
     cursor: pointer;
     color: #e60000;
   }
   
+  .compare-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgb(255, 255, 255);
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .compare-section::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: -1;
+    border-radius: 20px;
+    background: linear-gradient(to right, #ff0000, #0004ff);
+    filter: blur(30px);
+    opacity: 0.8;
+  }
+
+  .comparison-result{
+    margin:auto;
+    text-align:center;
+  }
+

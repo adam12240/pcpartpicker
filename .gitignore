@@ -20,8 +20,6 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-#README
-README.md
 
 # Visual Studio Code
 .vscode/*
@@ -44,5 +42,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Ignore local environment folder
-environments/
+#Firebase rules
+firestore.rules

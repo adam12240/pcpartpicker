@@ -76,12 +76,12 @@ export class HomeComponent {
     const compareValues = (val1: number, val2: number) =>
       val1 > val2 ? '>' : val1 < val2 ? '<' : '=';
 
-    resultHtml += `CPU: ${this.cpu1.name} vs ${this.cpu2.name}<br>`;
+    resultHtml += `<strong>CPU:</strong> ${this.cpu1.name} vs ${this.cpu2.name}<br>`;
     resultHtml += `Cores: ${this.cpu1.cores} ${compareValues(this.cpu1.cores, this.cpu2.cores)} ${this.cpu2.cores}<br>`;
     resultHtml += `Threads: ${this.cpu1.threads} ${compareValues(this.cpu1.threads, this.cpu2.threads)} ${this.cpu2.threads}<br>`;
     resultHtml += `TDP: ${this.cpu1.tdp}W ${compareValues(this.cpu2.tdp, this.cpu1.tdp)} ${this.cpu2.tdp}W<br><br>`;
 
-    resultHtml += `GPU: ${this.gpu1.name} vs ${this.gpu2.name}<br>`;
+    resultHtml += `<strong>GPU:</strong> ${this.gpu1.name} vs ${this.gpu2.name}<br>`;
     resultHtml += `Cores: ${this.gpu1.cores} ${compareValues(this.gpu1.cores, this.gpu2.cores)} ${this.gpu2.cores}<br>`;
     resultHtml += `TMUs: ${this.gpu1.tmus} ${compareValues(this.gpu1.tmus, this.gpu2.tmus)} ${this.gpu2.tmus}<br>`;
     resultHtml += `ROPs: ${this.gpu1.rops} ${compareValues(this.gpu1.rops, this.gpu2.rops)} ${this.gpu2.rops}<br>`;
@@ -89,10 +89,10 @@ export class HomeComponent {
     resultHtml += `Bus Width: ${this.gpu1.busWidth} bit ${compareValues(this.gpu1.busWidth, this.gpu2.busWidth)} ${this.gpu2.busWidth} bit<br>`;
     resultHtml += `Memory Type: ${this.gpu1.memoryType} vs ${this.gpu2.memoryType}<br><br>`;
 
-    resultHtml += `Manufacturer: ${this.ram1.manufacturer} vs ${this.ram2.manufacturer}<br>`;
-    resultHtml += `RAM Size: ${this.ram1.size}GB ${compareValues(this.ram1.size, this.ram2.size)} ${this.ram2.size}GB<br>`;
-    resultHtml += `RAM MHz: ${this.ram1.mhz}MHz ${compareValues(this.ram1.mhz, this.ram2.mhz)} ${this.ram2.mhz}MHz<br>`;
-    resultHtml += `Memory Type: ${this.ram1.type} vs ${this.ram2.type}<br>`;
+    resultHtml += `<strong>RAM:</strong>: ${this.ram1.manufacturer} vs ${this.ram2.manufacturer}<br>`;
+    resultHtml += `Size: ${this.ram1.size}GB ${compareValues(this.ram1.size, this.ram2.size)} ${this.ram2.size}GB<br>`;
+    resultHtml += `MHz: ${this.ram1.mhz}MHz ${compareValues(this.ram1.mhz, this.ram2.mhz)} ${this.ram2.mhz}MHz<br>`;
+    resultHtml += `Type: ${this.ram1.type} vs ${this.ram2.type}<br>`;
 
     this.comparisonResults.set(resultHtml);
     this.cdRef.detectChanges();
@@ -102,7 +102,7 @@ export class HomeComponent {
   showAlertAndCompare() {
     if (!this.cpu1 || !this.cpu2 || !this.gpu1 || !this.gpu2 || !this.ram1 || !this.ram2) {
       this.snackBar.open(`You have failed to fill in all the information.`, 'Close', {
-        duration: 3000, // in ms
+        duration: 3000, 
         horizontalPosition: 'center',
         verticalPosition: 'top'
       });

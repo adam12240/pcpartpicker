@@ -97,4 +97,6 @@ export class AuthService {
   }
 
   isAdmin = computed(() => this.userRole() === 'admin');
+
+  isLoggedIn = computed(() => this.userRole() === 'admin' || this.userRole() === 'user' || this.userRole() === 'owner')
 }

@@ -8,13 +8,11 @@ import { Observable } from 'rxjs';
 export class FirestoreService {
   constructor(private firestore: Firestore) {}
 
-  // Add data to Firestore
   addData(data: any) {
     const ref = collection(this.firestore, 'items');
     return addDoc(ref, data);
   }
 
-  // Get data from Firestore
   getData(): Observable<any[]> {
     const ref = collection(this.firestore, 'items');
     return collectionData(ref, { idField: 'id' });

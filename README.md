@@ -4,10 +4,10 @@ API csatlakozás nyilvánvalóan nincs, src mappában lenne az environment mappa
 
 # Firebase
 
-[Hostolt app](https://pcpartpicker-36abe-64480.firebaseapp.com)
+[Hostolt app](https://pcpartpicker-36abe-64480.web.app)
 
 ## TODO
-Auth, Saját konfiguráció mentése, Admin oldal (addPC)
+Tervezett funkciók megoldva
 ## Angular
 
 Indítás: ```ng serve```<br><br>

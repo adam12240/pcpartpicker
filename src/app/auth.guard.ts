@@ -14,5 +14,10 @@ export const userCheckerGuard: CanActivateFn = async (
     return false;
   }
 
-  return true;
-};
+  if (auth.isLoggedIn()) {
+    return true;
+  }
+
+  router.navigate(['/']);
+  return false;
+};  
